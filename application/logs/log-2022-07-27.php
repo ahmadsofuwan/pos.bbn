@@ -157,3 +157,6 @@ ERROR - 2022-07-27 03:01:12 --> Severity: Warning --> Cannot modify header infor
 ERROR - 2022-07-27 03:01:12 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\xampp_php7.3\htdocs\stock\system\core\Exceptions.php:271) C:\xampp_php7.3\htdocs\stock\application\core\MY_Controller.php 357
 ERROR - 2022-07-27 03:01:12 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\xampp_php7.3\htdocs\stock\system\core\Exceptions.php:271) C:\xampp_php7.3\htdocs\stock\application\core\MY_Controller.php 358
 ERROR - 2022-07-27 03:11:27 --> Severity: error --> Exception: Too few arguments to function Admin::reportExport(), 0 passed in C:\xampp_php7.3\htdocs\stock\system\core\CodeIgniter.php on line 532 and exactly 2 expected C:\xampp_php7.3\htdocs\stock\application\controllers\Admin.php 830
+ERROR - 2022-07-27 14:18:24 --> Query error: Table 'stock.class' doesn't exist - Invalid query: SELECT *
+FROM `class`
+ORDER BY `name` ASC

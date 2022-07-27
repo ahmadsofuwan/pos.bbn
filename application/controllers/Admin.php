@@ -1051,9 +1051,7 @@ class Admin extends MY_Controller
 			$_POST['password'] = '';
 		}
 		$selVal = $this->getDataRow('role', '*', '', '', '', 'name ASC');
-		$selValClass = $this->getDataRow('class', '*', '', '', '', 'name ASC');
 
-		$data['html']['selValClass'] = $selValClass;
 		$data['html']['baseUrl'] = $baseUrl;
 		$data['html']['selVal'] = $selVal;
 		$data['html']['title'] = 'Input Data ' . __FUNCTION__;
