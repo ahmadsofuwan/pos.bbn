@@ -26,7 +26,7 @@
                 <td><?php echo  date("d / m / Y  H:i", $value['returntime']) ?></td>
                 <td style="width: 180px;">
                     <a href="#" class="btn btn-primary" name="edit" pkey="<?php echo $value['pkey'] ?>">Edit</a>
-                    <button class="btn btn-danger" name="delete" value="<?php echo $value['pkey'] ?>" data="itemout">Delete</button>
+                    <!-- <button class="btn btn-danger" name="delete" value="<?php echo $value['pkey'] ?>" data="itemout">Delete</button> -->
                 </td>
             </tr>
         <?php } ?>
@@ -58,55 +58,6 @@
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    $('tbody').find('[name=delete]').click(function() {
-        var pkey = $(this).val();
-        var obj = $(this);
-        var tbl = obj.attr('data');
-        Swal.fire({
-            title: 'yakin?',
-            text: "Data Akan Di Hapus Secara Permanen",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Hapus!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                        url: '<?= base_url('Admin/ajax') ?>',
-                        type: 'POST',
-                        data: {
-                            action: 'delete',
-                            pkey: pkey,
-                            tbl: tbl,
-                        },
-                    })
-                    .done(function(a) {
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Berhasil Di Deleted',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        obj.closest('tr').remove();
-                        $.each($('tbody').find('tr > th'), function(index, elemt) {
-                            $(elemt).html(index + 1)
-                        });
-                    })
-                    .fail(function(a) {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Something went wrong!'
-                        })
-                    })
-
-
-
-            }
-        })
-    })
     $('body').find('[name=edit]').click(function() {
         var pkey = $(this).attr('pkey')
         $.ajax({
