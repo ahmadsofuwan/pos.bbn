@@ -27,10 +27,9 @@
         foreach ($dataList as $value) { ?>
             <?php
             $disable = '';
-            if ($value['status'] == 1)
+            if ($value['status'] == 1 && $this->role <> 1)
                 $disable = 'disabled';
             ?>
-
             <tr>
                 <th scope="row"><?php echo $i++ ?></th>
                 <td><?php echo $value['itemname'] ?></td>

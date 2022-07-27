@@ -24,9 +24,8 @@
                 <td><?php echo $value['pkey'] ?></td>
                 <td><?php echo  $value['createname'] . ' | ' . $value['rolename'] ?></td>
                 <td><?php echo  date("d / m / Y  H:i", $value['returntime']) ?></td>
-                <td style="width: 180px;">
+                <td class="text-center">
                     <a href="#" class="btn btn-primary" name="edit" pkey="<?php echo $value['pkey'] ?>">Edit</a>
-                    <!-- <button class="btn btn-danger" name="delete" value="<?php echo $value['pkey'] ?>" data="itemout">Delete</button> -->
                 </td>
             </tr>
         <?php } ?>
