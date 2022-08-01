@@ -9,7 +9,7 @@ class Api extends MY_Controller
 
         $item = $this->getDataRow('item', 'pkey,stock');
         $this->delete('close', array('time' => strtotime(date('d M Y'))));
-        $dateTime = date('d M Y', strtotime('-1 day'));
+        $dateTime = date('d M Y', strtotime('now'));
         foreach ($item as $itemKey => $itemValue) {
             $closeItem = array(
                 'itemkey' => $itemValue['pkey'],

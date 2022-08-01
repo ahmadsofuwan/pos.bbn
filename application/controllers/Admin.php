@@ -1283,6 +1283,22 @@ class Admin extends MY_Controller
 				}
 				echo json_encode(['status' => $status, 'url' => $url]);
 				break;
+			case 'closing':
+				$item = $this->getDataRow('item', 'pkey,stock');
+				$this->delete('close', array('time' => strtotime(date('d M Y'))));
+				$dateTime = date('d M Y', strtotime('now'));
+				foreach ($item as $itemKey => $itemValue) {
+					$closeItem = array(
+						'itemkey' => $itemValue['pkey'],
+						'time' => strtotime($dateTime),
+						'laststock' => $itemValue['stock'],
+					);
+					$this->insert('close', $closeItem);
+				}
+				$this->update('itemin', array('status' => 1), array('status' => 0));
+				$this->update('itemout', array('status' => 1), array('status' => 0));
+				echo json_encode(['status' => 'success']);
+				break;
 			default:
 				echo 'action is not in the list';
 				break;

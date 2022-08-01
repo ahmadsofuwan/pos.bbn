@@ -1,5 +1,8 @@
 <div class="row mb-3">
     <div class="col-sm-2">
+        <button class="btn btn-block btn-primary" id="closing">Closing</button>
+    </div>
+    <div class="col-sm-2">
         <button class="btn btn-block btn-success" id="exportClose">Export</button>
     </div>
     <div class="col-sm text-right ">
@@ -131,5 +134,32 @@
             }
 
         })
+    })
+    $('#closing').click(function() {
+        $.ajax({
+                url: '<?php echo base_url('Admin/ajax') ?>',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    action: 'closing'
+                },
+            })
+            .done(function() {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Berhasil DiClosing',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            })
+            .fail(function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                })
+            })
+
     })
 </script>
