@@ -326,7 +326,7 @@ class MY_Controller extends CI_Controller
 
     public function exportExcel($heder, $index, $data, $fileName)
     {
-
+        ob_start();
         $alphas = range('A', 'Z');
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
